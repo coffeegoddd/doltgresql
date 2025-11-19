@@ -84,10 +84,10 @@ jobs:
         run: gh pr create --base main --head "cd-release" --title "[no-release-notes] Release v${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update DoltgreSQL's version"
         env:
           GH_TOKEN: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN || secrets.REPO_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-      - name: Enable Pull Request Auto-Merge
-        run: gh pr merge --merge --auto "cd-release"
-        env:
-          GH_TOKEN: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN || secrets.REPO_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+      # - name: Enable Pull Request Auto-Merge
+      #   run: gh pr merge --merge --auto "cd-release"
+      #   env:
+      #     GH_TOKEN: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN || secrets.REPO_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
       - name: Download Extension Artifacts
         uses: actions/download-artifact@v4
         with:
